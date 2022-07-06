@@ -5,6 +5,7 @@ services:
     build: .
     networks:
       - proxy
+      - default
     container_name: pizza
     labels:
       - "traefik.enable=true"
@@ -12,3 +13,7 @@ services:
       - "traefik.http.routers.pizza.entrypoints=web"
       - "traefik.http.routers.pizza.rule=HOST(`pizza.${PWDOCKER_DOMAIN}`)`"
       - "traefik.http.routers.pizza.service=pizza"
+
+networks:
+  proxy:
+    external: true
