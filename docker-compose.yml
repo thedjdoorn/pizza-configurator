@@ -12,7 +12,7 @@ services:
       - "traefik.docker.network=proxy"
       - "traefik.http.routers.pizza.entrypoints=web"
       - "traefik.http.routers.pizza.rule=Host(`pizza.${PWDOCKER_DOMAIN}`)"
-      - "traefik.http.routers.pizza.service=pizza-pizza-configurator"
+      - "traefik.http.routers.pizza.service=${SERVICE_NAME}"
 
 networks:
   proxy:
